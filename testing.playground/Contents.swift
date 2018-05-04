@@ -79,7 +79,7 @@ case "celery": // cases for strings! not just ints
     print("Add some raisins and make ants on a log.")
 case "cucumber", "watercress":
     print("That would make a good tea sandwich.")
-case let x where x.hasSuffix("pepper"):
+case let x where x.hasSuffix("pepper"): // HAS SUFFIX function checks for that string at the end!
     print("Is it a spicy \(x)?") // make note of the escape character
 default:
     print("Everything tastes good in soup.") // this is our default case, will get executed if nothing true
@@ -92,15 +92,45 @@ let interestingNumbers = [
     "Square": [1, 4, 9, 16, 25],
 ]
 var largest = 0
+var typelargest = ""
 for (key, value) in interestingNumbers { // iterate through the keys, then iterate through the values
     for number in value { // go through every value, and if it's the largest so far set as largest
         if number > largest {
             largest = number
+            typelargest = key // keep track of what type the largest was
         }
     }
 }// ** note ^^^ the names of the key, value are arbitrary and can be anything!!!! ***
-print(largest)
+print(String(largest) + typelargest)
 
+
+// WHILE LOOPS
+var n = 2
+while n < 100 { // condition is at beginning
+    n *= 2
+}
+print(n)
+
+var m = 2
+repeat {
+    m *= 2
+} while m < 100 // condition at end i.e. repeat-while so that runs at least once
+print(m)
+
+// FOR LOOPS W INDEXES
+var total = 0
+for i in 0..<4 { // i goes from 0 to less than four i.e. 0, 1, 2, 3
+    print (i)
+}
+
+
+// FUNCTIONS IN SWIFT
+
+// argument labels, the things in the func definition = params, actually passed = args
+func greet(_ person: String, on day: String) -> String { // used underscore which means we don't have to specify that it's a person
+    return "Hello \(person), today is \(day)."
+}
+print(greet("John", on: "Wednesday")) // normally would put key: person instead
 
 
 
