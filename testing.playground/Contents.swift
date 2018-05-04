@@ -29,7 +29,22 @@ really long string that spans
 
 // initializer syntax for arrays and dictionaries
 let emptyArray = [String]() // use to represent an array of strings
-let emptyDic = [String: Float])() // use to represent names and marks
+let emptyDic = [String: Float]() // use to represent names and marks
 
+print (emptyArray)
+
+print(emptyDic)
+
+
+// playing with ifs, else, and for in loops 
+let scores = [1, 2, 3, 4, 5]
+for score in scores{
+    if score > 3{
+        print(score)
+    }
+    else{
+        print("score too low")
+    }
+}
 
 
