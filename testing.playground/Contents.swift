@@ -36,7 +36,8 @@ print (emptyArray)
 print(emptyDic)
 
 
-// playing with ifs, else, and for in loops 
+// playing with ifs, else, and for in loops
+// ifs MUST be boolean expressions, i.e. cant use if score {...} bc not expression
 let scores = [1, 2, 3, 4, 5]
 for score in scores{
     if score > 3{
@@ -46,5 +47,40 @@ for score in scores{
         print("score too low")
     }
 }
+
+// working with nils and optional values
+
+var optional: String? = "hello my name is"
+print(optional==nil) // should give us false bc this isnt nil, nil means value is missing in it
+
+var optional2: String? = "HELLO"
+var greeting = "hello"
+if let name = optional2{
+    greeting = "hello, \(name) "  // use the escape character to insert a variable into the string
+}
+
+print(greeting)
+
+
+// can also define defaults in case one isnt present
+
+let carcolor: String? = nil
+let cartype: String = "honda"
+
+let describecar = "that car is a \(carcolor ?? cartype)" // if there is no carcolor i.e. null, describe with car type
+print(describecar)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
