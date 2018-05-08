@@ -221,6 +221,82 @@ class NamedShape {
 } // can also have deinit to cleanup before destroying/deallocating
 
 
+// subclasses i.e. square is a subclass of namedshape
+class Square: NamedShape {
+    var sideLength: Double
+    
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name) // initialize the super class's i.e. parent's variables as well using it's init
+        numberOfSides = 4
+    }
+    
+    func area() -> Double {
+        return sideLength * sideLength
+    }
+    
+    override func simpleDescription() -> String { // overrides the parent classes function simpleDescription, MUST put this
+        return "A square with sides of length \(sideLength)."
+    }
+}
+let test = Square(sideLength: 5.2, name: "my test square") // made a new one, passed length and name which are what it's INITS take
+print(test.area()) // should be 5.2*5.2 = 27.04
+print(test.simpleDescription())
+
+
+// getters and setters
+class EquilateralTriangle: NamedShape {
+    var sideLength: Double = 0.0
+    
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name)
+        numberOfSides = 3
+    }
+    
+    var perimeter: Double {
+        get {
+            return 3.0 * sideLength // can get the perimeter
+        }
+        set {
+            sideLength = newValue / 3.0 // can set the perimeter by changing the side lengths
+        }               // newValue is the user inputted value that will be given to the program by the user
+        // can also use set (newPerimeter) { ... } to give an explicit name, other than newValue, to the new value
+    }
+    
+    override func simpleDescription() -> String {
+        return "An equilateral triangle with sides of length \(sideLength)."
+    }
+}
+var triangle = EquilateralTriangle(sideLength: 3.1, name: "a triangle")
+print(triangle.perimeter)
+triangle.perimeter = 9.9
+print("this is the triangle's side length if perimeter is 9.9: " + String(triangle.sideLength))
+
+// now making a class that takes our made objects as parameters
+class TriangleAndSquare {
+    var triangle: EquilateralTriangle {
+        willSet {
+            square.sideLength = newValue.sideLength
+        } //
+    }
+    var square: Square {
+        willSet {
+            triangle.sideLength = newValue.sideLength
+        }
+    }
+    init(size: Double, name: String) {
+        square = Square(sideLength: size, name: name)
+        triangle = EquilateralTriangle(sideLength: size, name: name)
+    }
+}
+var triangleAndSquare = TriangleAndSquare(size: 10, name: "another test shape")
+print(triangleAndSquare.square.sideLength)
+print(triangleAndSquare.triangle.sideLength)
+triangleAndSquare.square = Square(sideLength: 50, name: "larger square")
+print(triangleAndSquare.triangle.sideLength)
+
+
 
 
 
