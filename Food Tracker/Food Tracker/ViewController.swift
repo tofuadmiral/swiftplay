@@ -32,7 +32,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    // the below comment indicates that the code below it contains actions for my app, which will allow me to respond to events, etc.
+    // we will specify for the button that only UIButton Types can respond to that action or call on it, this is important later on
+    
+    //MARK: Actions
+    @IBOutlet weak var setDefaultLabelText: UIButton!
+    
 
 }
 
