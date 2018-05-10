@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? // this is an optional which means it might or might not have a value
-    // why does this need to be an optional at all???
+    // why does this need to be an optional at all???  in the case that there isn't a window passed to it, we need
+    // to be able to handle that
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
