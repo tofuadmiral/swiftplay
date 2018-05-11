@@ -27,13 +27,11 @@ class ViewController: UIViewController {
     // the below comment indicates that the code below it contains actions for my app, which will allow me to respond to events, etc. 
     
     //MARK: Actions
-    @IBOutlet weak var setDefaultLabelText: UIButton!
-    
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
         mealNameLabel.text = "Default Text"
     }
+
     
 
 
 }
-
