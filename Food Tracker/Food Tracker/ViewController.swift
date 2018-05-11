@@ -9,15 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    
-
-    // inherits from UIViewController, then overrides stuff depending on what you want from your app
-    
-    // the comment below is a special one that indicates that the next section contains properties
-    
     //MARK: Properties
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var mealNameLabel: UILabel!
     
@@ -32,12 +24,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    // the below comment indicates that the code below it contains actions for my app, which will allow me to respond to events, etc.
-    // we will specify for the button that only UIButton Types can respond to that action or call on it, this is important later on
+    // the below comment indicates that the code below it contains actions for my app, which will allow me to respond to events, etc. 
     
     //MARK: Actions
     @IBOutlet weak var setDefaultLabelText: UIButton!
     
+    @IBAction func setDefaultLabelText(_ sender: UIButton) {
+        mealNameLabel.text = "Default Text"
+    }
+    
+
 
 }
 
