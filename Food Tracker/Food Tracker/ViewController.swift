@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate { // adopting the uitextfield delegate so we can act on behalf of the uitextfield and get information from there
+    
+    //MARK: Outlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var mealNameLabel: UILabel! // only need outlets if we plan to modify or access these values, AND use actions to actually modify or act on these outlets.
     
@@ -26,6 +28,18 @@ class ViewController: UIViewController, UITextFieldDelegate { // adopting the ui
     }
     
     // actions indicate that something will be done with this, i.e. defining functions that correspond to outlets.
+    
+    //MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // resign the text field's first-responder status
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true // true bc we always want to process the press of the return key
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) { // note: underscores mean "ignore this" i.e. ignore the label when calling it, don't have to pass it the particular name but still takes a textField of type UITextField
+        mealNameLabel.text = textField.text
+    }
     
     //MARK: Actions
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
