@@ -12,7 +12,10 @@ class ViewController: UIViewController, UITextFieldDelegate { // adopting the ui
     
     //MARK: Outlets
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var mealNameLabel: UILabel! // only need outlets if we plan to modify or access these values, AND use actions to actually modify or act on these outlets.
+    @IBOutlet weak var mealNameLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    // only need outlets if we plan to modify or access these values, AND use actions to actually modify or act on these outlets.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,8 @@ class ViewController: UIViewController, UITextFieldDelegate { // adopting the ui
     }
     
     //MARK: Actions
+    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+    }
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
         mealNameLabel.text = "Default Text"
     }
