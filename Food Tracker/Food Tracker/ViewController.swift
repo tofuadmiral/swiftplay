@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate { // adopting the uitextfield delegate so we can act on behalf of the uitextfield and get information from there
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate { // adopting the uitextfield delegate so we can act on behalf of the uitextfield and get information from there
     
     //MARK: Outlets
     @IBOutlet weak var nameTextField: UITextField!
@@ -46,6 +46,14 @@ class ViewController: UIViewController, UITextFieldDelegate { // adopting the ui
     
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+        // hide the keyboard first
+        nameTextField.resignFirstResponder()
+        // UIImagePickerController let's the user choose a picture so let's do that
+        let imagePickerController = UIImagePickerController()
+        
+        // WE ONLY WANT TO LET THE user choose not take
+        imagePickerController.sourceType = .photoLibrary
+        
     }
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
         mealNameLabel.text = "Default Text"
