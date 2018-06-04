@@ -46,7 +46,25 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     //MARK: UIImagePickerControllerDelegate
     //      this section is the image picker implementation
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // dismiss if user cancels
+        dismiss(animated: true, completion: nil)// i.e. dismiss, show animation, don't do anything after
+    }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // make sure we choose original image, bc there might be diff versions
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary with an image inside, but was provided instead with \(info)") // fatal error terminates the app
+        }
+        
+        // set photoImageView to display selected image
+        photoImageView.image = selectedImage
+        
+        // now we done so dismiss the image picker
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
     
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
