@@ -44,6 +44,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         mealNameLabel.text = textField.text
     }
     
+    //MARK: UIImagePickerControllerDelegate
+    //      this section is the image picker implementation
+    
+    
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         // hide the keyboard first
@@ -53,6 +57,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         // WE ONLY WANT TO LET THE user choose not take
         imagePickerController.sourceType = .photoLibrary
+        
+        // make sure that the viewcontroller is notified of when the user wants to pick an image
+        imagePickerController.delegate = self
+        
+        // being called on ViewController, executed on implicit "self", present the view defined by imagepickercontroller i.e. UIImagePickerController, completion handler says what to do after and we don't need to do anything so 'nil'
+        present(imagePickerController, animated: true, completion: nil)
         
     }
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
