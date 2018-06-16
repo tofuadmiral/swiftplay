@@ -19,6 +19,12 @@ class RatingControl: UIStackView {
         setUpButtons()
     }
     
+    //MARK: Button Action
+    @objc func ratingButtonTapped(button: UIButton){
+        print("button tapped nya eh") // prints to the debugger console, just for testing purposes
+        
+    }
+    
     //MARK: Private Methods
     private func setUpButtons(){
         // create a button
@@ -29,6 +35,11 @@ class RatingControl: UIStackView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
+        
+        // setup the button's actions
+        button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+        // touchUpInside is useful because it means the user has to tap and ALSO touch up from inside the button in order for the action to be triggered
+        
         
         // add the button to the stack, managed by ratingcontrol stack view, which will create our constraints
         addArrangedSubview(button)
