@@ -23,6 +23,13 @@ class RatingControl: UIStackView {
     
     // initializers different in swift, if you call one you don't inherit ANY anymore, but if you don't call any you inherit all of them
     
+    
+    //MARK: Button Actions
+    
+    @objc func ratingButtonTapped(button: UIButton){
+        print("Button Pressed nyaehhh")
+    }
+    
     //MARK: Private Methods
     
     private func setUpButtons(){
@@ -34,6 +41,9 @@ class RatingControl: UIStackView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
+        
+        // before we add to stack, estblish actions of the button
+        button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
         
         // add button to the stack
         addArrangedSubview(button)

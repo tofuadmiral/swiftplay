@@ -56,16 +56,18 @@
                                     <constraint firstAttribute="trailing" secondItem="wKp-oM-CuJ" secondAttribute="trailing" id="ZXY-Ip-tzR"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ih4-De-d8j" customClass="RatingControl" customModule="Food_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="484" width="200" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ih4-De-d8j" customClass="RatingControl" customModule="Food_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="1" y="485" width="364" height="150"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="f3U-SB-tll" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="DuU-7G-1hz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ih4-De-d8j" secondAttribute="trailing" constant="10" id="ReI-vG-zjw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f3U-SB-tll" secondAttribute="trailing" id="aQY-0w-p0Z"/>
                             <constraint firstItem="f3U-SB-tll" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ddH-vG-tMc"/>
+                            <constraint firstItem="Ih4-De-d8j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="1" id="rl8-RZ-UgR"/>
+                            <constraint firstItem="Ih4-De-d8j" firstAttribute="top" secondItem="f3U-SB-tll" secondAttribute="bottom" constant="8" id="w5T-ws-Z37"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
