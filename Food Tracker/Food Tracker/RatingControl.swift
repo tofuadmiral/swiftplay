@@ -9,6 +9,12 @@
 import UIKit
 
 class RatingControl: UIStackView {
+    
+    //MARK: Properties
+    private var ratingButtons = [UIButton]()
+    var rating = 0
+    
+    
     //MARK: Initialization
     
     override init(frame: CGRect) {
@@ -33,20 +39,28 @@ class RatingControl: UIStackView {
     //MARK: Private Methods
     
     private func setUpButtons(){
-        // create the buttons
-        let button = UIButton()
-        button.backgroundColor = UIColor.red
         
-        // add some constraints to the button, so resizes properly
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
-        
-        // before we add to stack, estblish actions of the button
-        button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
-        
-        // add button to the stack
-        addArrangedSubview(button)
+        // loop to create five buttons
+        for _ in 0..<5{
+            
+            // create the buttons
+            let button = UIButton()
+            button.backgroundColor = UIColor.red
+            
+            // add some constraints to the button, so resizes properly
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+            button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
+            
+            // before we add to stack, estblish actions of the button
+            button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+            
+            // add button to the stack
+            addArrangedSubview(button)
+            
+            // add the created button to the array of buttons field
+            ratingButtons.append(button)
+        }
         
     }
     
@@ -55,11 +69,11 @@ class RatingControl: UIStackView {
     
     // this will be important later but we don't need it right now
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
+    
 }
