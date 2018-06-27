@@ -50,6 +50,13 @@ import UIKit
     
     private func setUpButtons(){
         
+        // first, remove any of the old buttons
+        for button in ratingButtons {
+            removeArrangedSubview(button) // stop calculating things for the buttons
+            button.removeFromSuperview() // remove the views
+        }
+        ratingButtons.removeAll()   // this clears the array of buttons to setup new array
+        
         // loop to create five buttons
         for _ in 0..<starCount{
             
