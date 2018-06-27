@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RatingControl: UIStackView {
+@IBDesignable class RatingControl: UIStackView { // make it designable by the interface builder, draws copy of control directly on the canvas as well as sizing properly 
     
     //MARK: Properties
     private var ratingButtons = [UIButton]()
