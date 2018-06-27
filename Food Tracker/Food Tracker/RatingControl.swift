@@ -13,6 +13,16 @@ import UIKit
     //MARK: Properties
     private var ratingButtons = [UIButton]()
     var rating = 0
+    @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0){
+        didSet{
+            setupButtons() // once we set this variable, change the buttons to reflect this set
+        }
+    }
+    @IBInspectable var starCount: Int = 5 { // interface builder can inspect and see these values
+        didSet{
+            setUpButtons() // same as above, if starCount changes, rebuild the buttons with new count
+        }
+    }
     
     
     //MARK: Initialization
@@ -41,7 +51,7 @@ import UIKit
     private func setUpButtons(){
         
         // loop to create five buttons
-        for _ in 0..<5{
+        for _ in 0..<starCount{
             
             // create the buttons
             let button = UIButton()
@@ -49,8 +59,8 @@ import UIKit
             
             // add some constraints to the button, so resizes properly
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
-            button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
+            button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
+            button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
             // before we add to stack, estblish actions of the button
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
