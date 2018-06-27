@@ -15,7 +15,7 @@ import UIKit
     var rating = 0
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0){
         didSet{
-            setupButtons() // once we set this variable, change the buttons to reflect this set
+            setUpButtons() // once we set this variable, change the buttons to reflect this set
         }
     }
     @IBInspectable var starCount: Int = 5 { // interface builder can inspect and see these values
